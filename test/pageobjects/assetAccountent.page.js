@@ -1,5 +1,4 @@
 const assert = require('assert');
-const { Email } = require('./credential.js');
 const page = require('./page.js')
 class AssetAccountentPage {
     //Start page
@@ -41,140 +40,137 @@ class AssetAccountentPage {
     logoutButton = '[name="log-out"]';
     async okClick() {
         await page.click(this.okButton)
-    }
+    };
     async selectRegisterButtonClick() {
         await page.click(this.selectRegisterButton)
-    }
+    };
     async createNewRegisterButtonClick() {
         await page.click(this.createNewRegisterButton)
-    }
+    };
     async setRegisterNameInputValue(name) {
         await page.setValue(this.registerNameInput, name)
-    }
+    };
     async w8ForAssets() {
         await page.waitUntilClickable(this.assetsButton, 100000)
-    }
+    };
     async w8ForSave() {
         await page.waitUntilDisplayed(this.alertPic)
-    }
+    };
 
-    async AssetBaseURL(name) {
-        await page.baseURL(name);
-    }
+    async assetBaseURL(name) {
+        await page.baseURL(name)
+        browser.maximizeWindow()
+    };
 
     async clickbtnCreateAnAccount() {
-        await page.click(this.createAnAccountButton);
+        await page.click(this.createAnAccountButton)
     };
 
-    async SetFirstname(firstName) {
-        await page.setValue(this.firstNameInput, firstName);
+    async setFirstname(firstName) {
+        await page.setValue(this.firstNameInput, firstName)
     };
-    async SetLastname(lastName) {
-        await page.setValue(this.lastNameInput, lastName);
+    async setLastname(lastName) {
+        await page.setValue(this.lastNameInput, lastName)
     };
 
-    async SetEmail1(Email) {
-        await page.setValue(this.emailInput2, Email);
+    async setEmail1(Email) {
+        await page.setValue(this.emailInput2, Email)
     };
-    async SetPhone(phoneNumber) {
-        await page.setValue(this.phonenumberInput, phoneNumber);
+    async setPhone(phoneNumber) {
+        await page.setValue(this.phonenumberInput, phoneNumber)
     };
-    async SetPassword1(password) {
-        await page.setValue(this.passwordInput2, password);
+    async setPassword1(password) {
+        await page.setValue(this.passwordInput2, password)
     };
-    async ConfirmPassword(password) {
-        await page.setValue(this.confirmPasswordInput, password);
+    async confirmPassword(password) {
+        await page.setValue(this.confirmPasswordInput, password)
     };
     async clickbtnSubmit() {
-        await page.click(this.submitButton);
+        await page.click(this.submitButton)
     };
-
 
     async clickSignIn() {
         await page.click(this.signInButton)
-    }
+    };
 
-
-    async SetEmail2(Email) {
+    async setEmail2(Email) {
 
         await page.setValue(this.emailInput1, Email)
-    }
+    };
 
     async clickNext() {
         await page.click(this.nextButton1)
-    }
+    };
 
-    async Setpassword2(password) {
+    async setpassword2(password) {
         await page.setValue(this.passwordInput1, password)
-    }
-    async UseClickBeforeStart() {
-        await page.click(this.forLoadClick);
-    }
+    };
+    async useClickBeforeStart() {
+        await page.click(this.forLoadClick)
+    };
 
     async setOrganisation(organisation) {
         await page.setValue(this.organizationInput, organisation)
-    }
+    };
 
     async clickbtnCreate() {
         await page.click(this.createButton)
-    }
+    };
     async clickBtnCreateRegister() {
         await page.click(this.createRegisterButton)
-    }
+    };
 
     async clickbtnNext() {
         await page.click(this.nextButton2)
-    }
+    };
 
     async clickbtnTryForFree() {
         await page.click(this.tryForFreeButton)
-    }
+    };
 
     async clickAutoNumber() {
         await page.click(this.autoNumberCheckbox)
-    }
+    };
 
     async clickbtnSave() {
         await page.click(this.saveButton)
         await browser.pause(1500)
-    }
+    };
 
     async assetsButtonClick() {
         await page.click(this.assetsButton)
-    }
+    };
 
     async clickbtnCreateAssetGroupfromTemplate() {
         await page.click(this.createAssetGroupFromTempleteButton)
         await browser.pause(2000)
-    }
+    };
 
     async clickbtnNewAsset() {
         await page.click(this.newAssetButton)
-    }
+    };
 
     async clickbtnExit() {
         await page.click(this.exitButton)
         await browser.pause(3000)
 
-    }
+    };
     async clickOnProfile() {
-        await page.click(this.profileButton);
-    }
+        await page.click(this.profileButton)
+    };
     async clickLogout() {
         await page.click(this.logoutButton)
-    }
+    };
     async waitForLogout() {
         await page.waitUntilDisplayed(this.createButton, timeout = 100000)
         await browser.pause(3000)
-    }
+    };
     async waitForLogoutButton() {
         await page.waitUntilDisplayedInViewport(this.logoutButton, timeout = 100000)
         await browser.pause(1500)
-    }
+    };
 
 
 };
 
-
-
-module.exports = new AssetAccountentPage(); 
+module.exports = new AssetAccountentPage();

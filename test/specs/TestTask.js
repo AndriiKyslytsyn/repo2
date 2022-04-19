@@ -1,9 +1,6 @@
 const assert = require('assert');
-
 const assetAccountentPage = require('../pageobjects/assetAccountent.page.js');
-
 const credential = require('../pageobjects/credential');
-const { mailsacBaseURL } = require('../pageobjects/Mailsac.page.js');
 const MailsacPage = require('../pageobjects/Mailsac.page.js');
 const page = require('../pageobjects/page.js');
 
@@ -11,14 +8,14 @@ const page = require('../pageobjects/page.js');
 
 describe('Test task on base url', async () => {
     it('Creating a new account', async () => {
-        await assetAccountentPage.AssetBaseURL(credential.AssetBaseURL);
+        await assetAccountentPage.assetBaseURL(credential.assetBaseURL);
         await assetAccountentPage.clickbtnCreateAnAccount();
-        await assetAccountentPage.SetFirstname(credential.firstName);
-        await assetAccountentPage.SetLastname(credential.lastName);
-        await assetAccountentPage.SetEmail1(credential.Email);
-        await assetAccountentPage.SetPhone(credential.phoneNumber);
-        await assetAccountentPage.SetPassword1(credential.password);
-        await assetAccountentPage.ConfirmPassword(credential.password);
+        await assetAccountentPage.setFirstname(credential.firstName);
+        await assetAccountentPage.setLastname(credential.lastName);
+        await assetAccountentPage.setEmail1(credential.Email);
+        await assetAccountentPage.setPhone(credential.phoneNumber);
+        await assetAccountentPage.setPassword1(credential.password);
+        await assetAccountentPage.confirmPassword(credential.password);
         await assetAccountentPage.clickbtnSubmit()
         await page.makeScreenshot('accountCreated');
     })
@@ -27,18 +24,18 @@ describe('Test task on base url', async () => {
         await MailsacPage.mailsacBaseURL(credential.mailsacBaseURL);
         await MailsacPage.clickdropbox();
         await MailsacPage.clicksignIn();
-        await MailsacPage.SetName(credential.userName);
+        await MailsacPage.setName(credential.userName);
         await MailsacPage.setPassword(credential.userPassword);
         await MailsacPage.clickbtnSignIn();
-        await MailsacPage.SetMail(credential.emailPart);
-        await MailsacPage.ClickCheckEmail();
-        await MailsacPage.ClickOnLetter();
+        await MailsacPage.setMail(credential.emailPart);
+        await MailsacPage.clickCheckEmail();
+        await MailsacPage.clickOnLetter();
         await MailsacPage.clickshowMailwithLink();
         await MailsacPage.switchWindow('Welcome to AssetAccountant™');
         await page.makeScreenshot('accountVerified');
         await MailsacPage.clickVerifyEmail();
-        await MailsacPage.switchWindow('Create Your Organisation - AssetAccountant™')
-        await assetAccountentPage.UseClickBeforeStart();
+        await MailsacPage.switchWindow('Create Your Organisation - AssetAccountant™');
+        await assetAccountentPage.useClickBeforeStart();
         await assetAccountentPage.clickOnProfile();
         await assetAccountentPage.clickLogout();
         await page.makeScreenshot('logout');
@@ -46,14 +43,13 @@ describe('Test task on base url', async () => {
     })
 
     it('Sign in with valid credentils and create new asset', async () => {
-        await assetAccountentPage.AssetBaseURL(credential.AssetBaseURL);
-        await browser.setWindowSize(1920, 1080);
+        await assetAccountentPage.assetBaseURL(credential.assetBaseURL);
         await assetAccountentPage.clickSignIn();
-        await assetAccountentPage.SetEmail2(credential.Email);
+        await assetAccountentPage.setEmail2(credential.Email);
         await assetAccountentPage.clickNext();
-        await assetAccountentPage.Setpassword2(credential.password);
+        await assetAccountentPage.setpassword2(credential.password);
         await assetAccountentPage.clickNext();
-        await assetAccountentPage.UseClickBeforeStart();
+        await assetAccountentPage.useClickBeforeStart();
         await assetAccountentPage.setOrganisation(credential.organisation);
         await assetAccountentPage.clickbtnCreate();
         await assetAccountentPage.clickBtnCreateRegister();

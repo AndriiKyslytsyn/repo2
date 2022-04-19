@@ -1,4 +1,3 @@
-
 class Page {
     async getElement(element) {
         return await $(element);
@@ -6,12 +5,16 @@ class Page {
     async waitUntilClickable(element, timeout = 100000) {
         await browser.waitUntil(async () => {
             return (await this.getElement(element)).isClickable();
-        }, { timeout: timeout });
+        }, {
+            timeout: timeout
+        });
     }
     async waitUntilDisplayed(element, timeout = 100000) {
         await browser.waitUntil(async () => {
             return (await this.getElement(element)).isDisplayed();
-        }, { timeout: timeout });
+        }, {
+            timeout: timeout
+        });
     }
     async click(element) {
         await this.waitUntilClickable(element);
@@ -22,7 +25,7 @@ class Page {
         await (await this.getElement(element)).setValue(value);
     }
     async makeScreenshot(name) {
-        await browser.saveScreenshot(name+'.png');
+        await browser.saveScreenshot(name + '.png');
     }
     async baseURL(name) {
         await browser.url(name)
@@ -30,7 +33,9 @@ class Page {
     async waitUntilDisplayedInViewport(element, timeout = 100000) {
         await browser.waitUntil(async () => {
             return (await this.getElement(element)).isDisplayedInViewport();
-        }, { timeout: timeout });
+        }, {
+            timeout: timeout
+        });
     }
 
 
