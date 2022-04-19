@@ -1,7 +1,7 @@
 const assert = require('assert');
 const assetAccountentPage = require('../pageobjects/assetAccountent.page.js');
 const credential = require('../pageobjects/credential');
-const MailsacPage = require('../pageobjects/Mailsac.page.js');
+const mailsacPage = require('../pageobjects/mailsac.page.js');
 const page = require('../pageobjects/page.js');
 
 
@@ -16,25 +16,25 @@ describe('Test task on base url', async () => {
         await assetAccountentPage.setPhone(credential.phoneNumber);
         await assetAccountentPage.setPassword1(credential.password);
         await assetAccountentPage.confirmPassword(credential.password);
-        await assetAccountentPage.clickbtnSubmit()
+        await assetAccountentPage.clickbtnSubmit();
         await page.makeScreenshot('accountCreated');
     })
 
     it('The new account verification via Email', async () => {
-        await MailsacPage.mailsacBaseURL(credential.mailsacBaseURL);
-        await MailsacPage.clickdropbox();
-        await MailsacPage.clicksignIn();
-        await MailsacPage.setName(credential.userName);
-        await MailsacPage.setPassword(credential.userPassword);
-        await MailsacPage.clickbtnSignIn();
-        await MailsacPage.setMail(credential.emailPart);
-        await MailsacPage.clickCheckEmail();
-        await MailsacPage.clickOnLetter();
-        await MailsacPage.clickshowMailwithLink();
-        await MailsacPage.switchWindow('Welcome to AssetAccountant™');
+        await mailsacPage.mailsacBaseURL(credential.mailsacBaseURL);
+        await mailsacPage.clickdropbox();
+        await mailsacPage.clicksignIn();
+        await mailsacPage.setName(credential.userName);
+        await mailsacPage.setPassword(credential.userPassword);
+        await mailsacPage.clickbtnSignIn();
+        await mailsacPage.setMail(credential.emailPart);
+        await mailsacPage.clickCheckEmail();
+        await mailsacPage.clickOnLetter();
+        await mailsacPage.clickshowMailwithLink();
+        await mailsacPage.switchWindow('Welcome to AssetAccountant™');
         await page.makeScreenshot('accountVerified');
-        await MailsacPage.clickVerifyEmail();
-        await MailsacPage.switchWindow('Create Your Organisation - AssetAccountant™');
+        await mailsacPage.clickVerifyEmail();
+        await mailsacPage.switchWindow('Create Your Organisation - AssetAccountant™');
         await assetAccountentPage.useClickBeforeStart();
         await assetAccountentPage.clickOnProfile();
         await assetAccountentPage.clickLogout();

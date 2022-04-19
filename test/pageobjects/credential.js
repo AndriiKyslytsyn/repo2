@@ -4,7 +4,7 @@ class Credential {
     firstName = 'John';
     lastName = 'Snow';
     phoneNumber = '+380502689234';
-    emailPart = 'test_777655869333340';
+    emailPart = 'test_7776558336903340';
     Email = this.emailPart + '@mailsac.com';
     password = 'Johnsnow123';
     organisation = 'Valha';
