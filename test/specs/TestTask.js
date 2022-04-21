@@ -20,7 +20,7 @@ describe('Test task on base url', async () => {
         await page.makeScreenshot('accountCreated');
     })
 
-    it('The new account verification via Email', async () => {
+    xit('The new account verification via Email', async () => {
         await mailsacPage.mailsacBaseURL(credential.mailsacBaseURL);
         await mailsacPage.clickdropbox();
         await mailsacPage.clicksignIn();
@@ -42,7 +42,7 @@ describe('Test task on base url', async () => {
 
     })
 
-    it('Sign in with valid credentils and create new asset', async () => {
+   xit('Sign in with valid credentils and create new asset', async () => {
         await assetAccountentPage.assetBaseURL(credential.assetBaseURL);
         await assetAccountentPage.clickSignIn();
         await assetAccountentPage.setEmail2(credential.Email);
